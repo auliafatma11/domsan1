@@ -3,7 +3,8 @@
 
     $halaman = [
         "dashboard",
-        "data",
+        "data_siswa",
+        "tambah_datasiswa",
         "tambah_admin",
         "insert_admin",
         "cek-riwayat",

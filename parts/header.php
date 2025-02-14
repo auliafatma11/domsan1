@@ -1,8 +1,10 @@
-<!-- Logo -->
-<a href="index2.html" class="logo">
+   
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>D-</b>$AN</span>
       <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg brandlogo-image"><img src="logo/dom-san.png" alt=""></span>
       <span class="logo-lg"><b>DOM-$AN</b></span>
     </a>
 
@@ -16,11 +18,12 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
+          <!-- <li class="dropdown messages-menu"> -->
             <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
+             <!-- <i class="fa fa-envelope-o"></i> -->
+             <i class="bi bi-box-arrow-right"></i>
+              <!-- <span class="label label-success">Logout</span> -->
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
@@ -52,14 +55,14 @@
           <!-- /.messages-menu -->
 
           <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
+          <!-- <li class="dropdown notifications-menu"> -->
             <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
               <span class="label label-warning">10</span>
-            </a>
+            </a> -->
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <!-- <li class="header">You have 10 notifications</li> -->
               <li>
                 <!-- Inner Menu: contains the notifications -->
                 <ul class="menu">
@@ -77,10 +80,10 @@
           <!-- Tasks Menu -->
           <li class="dropdown tasks-menu">
             <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
               <span class="label label-danger">9</span>
-            </a>
+            </a> -->
             <ul class="dropdown-menu">
               <li class="header">You have 9 tasks</li>
               <li>
@@ -112,13 +115,13 @@
             </ul>
           </li>
           <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
+          <li class="dropdown user user-menu"> 
             <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <!-- <span class="hidden-xs">Alexander Pierce</span> -->
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -157,9 +160,9 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
+          <!-- <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>

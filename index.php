@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    ob_start();
+
+    include "library/config.php";
+
+    if (empty($_SESSION['username']) OR empty($_SESSION['password'])) {
+        echo "<script>alert('Anda harus login terlebih dahulu!.'); window.location='landing.php';</script>";
+        exit();
+    }else {
+        define('INDEX', true);
+
+
+    // Cek apakah user login dan memiliki role admin
+    if (!isset($_SESSION['username']) || $_SESSION['role'] !== '1') {
+        echo "<script>alert('Akses ditolak! Anda bukan admin.'); window.location='login.php';</script>";
+        exit();
+}
+
+    
+?>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -31,7 +53,7 @@ desired effect
 <div class="wrapper">
 
   <!-- Main Header -->
-  <header class="main-header">
+  <header class="main-header" style="background-image: url('logo/1.png');">
   <?php include "parts/header.php"; ?>    
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -163,3 +185,7 @@ desired effect
      user experience. -->
 </body>
 </html>
+
+<?php
+    }
+?>

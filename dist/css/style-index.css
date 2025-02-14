@@ -1,0 +1,140 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #5CCEFF;
+    color: #000;
+    text-align: center;
+}
+
+.header {
+    margin-top: 20px;
+}
+
+.logo {
+    width: 130px;
+}
+
+/* Mengatur layout pada layar kecil (responsive) */
+@media (max-width: 700px){
+    .dashboard{
+        flex-direction: column;
+    }
+}
+
+/* Membuat tampilan form menumpuk pada layar kecil */
+@media (max-width: 700px){
+    .form-group label, .form-group input{
+        width: 100%;
+    }
+}
+
+.garis-horizontal {
+    border-top: 10px solid #fff;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+h2 .title {
+    margin-top: 10px;
+    margin-bottom: 55px;
+    font-size: 20px;
+    font-weight: semi-bold;
+    font-style: italic;
+    text-align: center;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card a {
+    display: inline-block;
+    padding: 7px 10px;            
+    color: black;
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.card a:hover {
+    background: #5CCEFF;
+    color: #fff;
+    border: 3px solid #fff;
+}
+
+.bank {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    background-size: 100px;
+}
+
+.bank img {
+    width: 150px;
+    margin: 0 10px; 
+}
+footer{
+    width: 100%;
+    background: #ccc;
+    color: #555;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.logout-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.logout-button {
+    text-decoration: none;
+    list-style: none;
+    color: black;
+
+}
+
+.logout-button:hover {
+    background: darkred;
+}
+
+.card {
+    background: #fff;
+    background-size: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    }
+
