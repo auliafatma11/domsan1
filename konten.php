@@ -17,7 +17,7 @@
         "riwayat_tambah",
         "riwayat_insert",
         "riwayat_hapus",
-        "tariktabung_saldo",
+        "tarik",
         "tarik_proses",
         "tabung",
         "tabung_proses"
