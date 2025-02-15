@@ -3,16 +3,16 @@
     <section class="sidebar">
 
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
+      <!-- <div class="user-panel">
         <div class="pull-left image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Alexander Pierce</p> -->
           <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
-      </div>
+      </div> -->
 
       <!-- search form (Optional) -->
       <!-- <form action="#" method="get" class="sidebar-form">
@@ -31,10 +31,10 @@
         <li class="header">SIDEBAR</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="?hal=dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="?hal=data_siswa"><i class="fa fa-map"></i> <span>Data Siswa</span></a></li>
+        <li><a href="?hal=data_nasabah"><i class="fa fa-map"></i> <span>Data Siswa</span></a></li>
         <li><a href="?hal=data_admin"><i class="fa fa-tags"></i> <span>Data Admin</span></a></li>
         <li><a href="?hal=riwayat"><i class="fa fa-history"></i> <span>Riwayat</span></a></li>
-        <li><a href="?hal=riwayat"><i class="fa fa-book"></i> <span>Panduan Aplikasi</span></a></li>
+        <li><a href="https://fahruroziii.github.io/panduan-aplikasi/" target="blank"><i class="fa fa-book"></i> <span>Panduan Aplikasi</span></a></li>
         <!-- <li class="treeview">
           <a href="#"><i class="fa fa-user-plus"></i> <span>Tambah User</span>
           <span class="pull-right-container">

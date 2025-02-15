@@ -23,7 +23,7 @@
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-             <a href="?hal=data_siswa" class="small-box-footer"> Lihat <i class="fa fa-arrow-circle-right"></i></a>
+             <a href="?hal=data_nasabah" class="small-box-footer"> Lihat <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
