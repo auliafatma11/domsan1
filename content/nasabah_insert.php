@@ -1,93 +1,75 @@
 <?php
-if(!defined('INDEX')) die("");
+if (!defined('INDEX')) die("Akses ditolak!");
 
+// Koneksi database
+include 'library/config.php';
+
+// Ambil data dari form
+$nama = mysqli_real_escape_string($con, $_POST['nama']);
+$no_induk = mysqli_real_escape_string($con, $_POST['no_induk']);
+$kelas = mysqli_real_escape_string($con, $_POST['kelas']);
+$role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) : '2'; // Default 'user'
+
+// Cek apakah No Induk sudah ada di database
+$query = "SELECT * FROM user WHERE no_induk = '$no_induk'";
+$result = mysqli_query($con, $query);
+if (mysqli_num_rows($result) > 0) {
+    echo "<script>
+    alert('⚠️ No. Induk sudah terdaftar. Gunakan nomor induk lain.');
+    window.location.href='?hal=nasabah_tambah';
+    </script>";
+    exit;
+}
+
+// Proses Upload Foto
 $foto = $_FILES['foto']['name'];
 $lokasi = $_FILES['foto']['tmp_name'];
 $tipe = $_FILES['foto']['type'];
 $ukuran = $_FILES['foto']['size'];
 
+$nama_foto = "";
+if (!empty($foto)) {
+    // Cek tipe file harus jpg/png
+    $tipe_valid = ["image/jpeg", "image/jpg", "image/png"];
+    if (!in_array($tipe, $tipe_valid)) {
+        echo "<script>alert('❌ Tipe file tidak didukung! Hanya JPG & PNG.'); window.location.href='?hal=nasabah_tambah';</script>";
+        exit;
+    }
 
-$nama = mysqli_real_escape_string($con, $_POST['nama']);
-$no_induk = mysqli_real_escape_string($con, $_POST['no_induk']);
-$kelas= $_POST['kelas'];
-// $saldo= $_POST['saldo'];
-$role= $_POST['role'];
+    // Cek ukuran file
+    if ($ukuran >= 1000000) {
+        echo "<script>alert('❌ Ukuran file terlalu besar! Maks 1MB.'); window.location.href='?hal=nasabah_tambah';</script>";
+        exit;
+    }
 
-$error = "";
+    // Rename file agar unik
+    $nama_foto = date('YmdHis') . "-" . basename($foto);
 
-// **🔍 Pengecekan apakah `no_induk` sudah ada**
-$query = "SELECT * FROM user WHERE no_induk = '$no_induk'";
-$result = mysqli_query($con,$query);
-$data = mysqli_fetch_assoc($result);
+    // Pastikan folder `images/` ada
+    if (!file_exists("images")) {
+        mkdir("images", 0777, true);
+    }
 
-if (mysqli_num_rows($result) > 0) {
-    echo "<script>
-    window.alert('⚠️ No. Induk sudah terdaftar. Silakan gunakan nomor induk lain.');
-    window.location.href='?hal=nasabah_tambah';
-    </script>";
-
-}else{
-
-    
-if($foto == ""){
-    // $query = "INSERT INTO user SET ";
-    // $query .= "foto = '$foto', ";
-    // $query .= "nama = '$nama', ";
-    // $query .= "no_induk = '$no_induk', ";
-    // $query .= "kelas = '$kelas' ";
-    // $query .= "saldo = '0' ";
-    // $query .= "role = '$role'";
-
-    $query = "INSERT INTO user (foto, nama, no_induk, kelas, saldo, role) 
-                  VALUES ('', '$nama', '$no_induk', '$kelas', '0', '$role')";
-   
-    $result = mysqli_query($con,$query);
-}else{
-        if($tipe != "image/jpeg" and $tipe != "image/jpg" and $tipe != "image/png") {
-            $error ="<script>
-                    window.alert('Maaf, tipe file tidak didukung!');
-                    window.location.href='?hal=nasabah_tambah';
-                    </script>";
-        } elseif($ukuran >=1000000) {
-            // echo $ukuran; 
-            $error =    "<script>
-                        window.alert('Ukuran file terlalu besar (lebih dari 1 MB)!');
-                        window.location.href='?hal=nasabah_tambah';
-                        </script>";
-        } else {
-            $nama_foto = date('YmdHis')."-".$foto;
-            move_uploaded_file($lokasi, "images/".$nama_foto);
-    
-            // $query = "INSERT INTO user SET ";
-            // $query .= "foto = '$nama_foto', ";
-            // $query .= "nama = '$nama', ";
-            // $query .= "no_induk = '$no_induk', ";
-            // $query .= "kelas = '$kelas', ";
-            // $query .= "saldo = '0' ";
-            // $query .= "role = '$role'";
-
-            $query = "INSERT INTO user (foto, nama, no_induk, kelas, saldo, role) 
-                  VALUES ('', '$nama', '$no_induk', '$kelas', '0', '$role')";
-    
-            $result = mysqli_query($con,$query);
-        }
+    // Pindahkan file
+    if (!move_uploaded_file($lokasi, "images/" . $nama_foto)) {
+        echo "<script>alert('❌ Gagal mengupload foto!'); window.location.href='?hal=nasabah_tambah';</script>";
+        exit;
     }
 }
 
-    if($error != ""){
-        echo $error;
-        echo "<meta http-equiv='refresh' content='2; url=?hal=nasabah_tambah&id=$id'>";
-    } elseif($query){
-        echo "<script>
-        window.alert('Data berhasil ditambah');
-        window.location.href='?hal=data_nasabah';
-        </script>";
-    } else {
-        echo "<script>
-        window.alert('Tidak dapat menyimpan data !<br>');
-        </script>";
-        echo mysqli_error();
-    }
-    ?>
+// Simpan data ke database
+$query = "INSERT INTO user (foto, nama, no_induk, kelas, saldo, role) 
+          VALUES ('$nama_foto', '$nama', '$no_induk', '$kelas', '0', '$role')";
 
-
+if (mysqli_query($con, $query)) {
+    echo "<script>
+    alert('✅ Data berhasil ditambah!');
+    window.location.href='?hal=data_nasabah';
+    </script>";
+} else {
+    echo "<script>
+    alert('❌ Gagal menyimpan data!');
+    </script>";
+    echo mysqli_error($con);
+}
+?>

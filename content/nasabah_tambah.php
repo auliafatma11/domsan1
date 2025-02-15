@@ -46,8 +46,11 @@ if(!defined('INDEX')) die("");
                   <input type="number" class="form-control" id="saldo" name="saldo" >
                 </div> -->
                 <div class="form-group">
-                  <label for="role">Role</label> <br>
-                  <input type="checkbox" id="role" name="role" > 2
+                <label for="role">Role</label>
+                <select id="role" name="role" disabled>
+                    <option value="2" >User</option>
+                    <option value="1" >Admin</option>
+                </select>
                 </div>
                 
               <!-- /.box-body -->

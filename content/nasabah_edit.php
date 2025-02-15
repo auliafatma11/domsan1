@@ -12,7 +12,7 @@ $data = mysqli_fetch_array($query);
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-        Tambah Nasabah
+        Edit Nasabah
       </h1>
     </section>
 
@@ -38,13 +38,13 @@ $data = mysqli_fetch_array($query);
                   </div>
                 <div class="form-group">
                   <label for="nama">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="nama" name="nama" value="<?=$data['nama']?>" >
+                  <input type="text" class="form-control" id="nama" name="nama" value="<?=$data['nama']?>" required readonly>
                 </div>
                 <div class="form-group">
                     <label for="no_induk">No.Induk</label>
-                    <input type="text" class="form-control" id="no_induk" name="no_induk" value="<?=$data['no_induk']?>" >
+                    <input type="text" class="form-control" id="no_induk" name="no_induk" value="<?=$data['no_induk']?>" required readonly >
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <label for="kelas">Kelas</label> <br>
                     <!-- Pengecekan kelas -->
                     <?php
@@ -68,13 +68,20 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <div class="form-group">
                   <label for="saldo">Saldo</label>
-                  <input type="number" class="form-control" id="saldo" name="saldo" value="<?=$data['saldo']?>" >
+                  <input type="number" class="form-control" id="saldo" name="saldo" value="<?=$data['saldo']?>" required readonly>
                 </div>
-                 <div class="form-group">
+                 <!-- <div class="form-group">
                   <label for="role">Role</label> <br>
                   <input type="checkbox" id="role" name="role" > 2
+                </div> -->
+                <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role" disabled>
+                    <option value="1" <?php if($data['role'] == '1') echo 'selected'; ?>>Admin</option>
+                    <option value="2" <?php if($data['role'] == '2') echo 'selected'; ?>>User</option>
+                </select>
                 </div>
-                
+                <br>               
               <!-- /.box-body -->
 
               <div class="box-footer">
