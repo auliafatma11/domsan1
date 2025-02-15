@@ -14,9 +14,9 @@
         <h2>Sebelum masuk, silahkan login dahulu ....</h2>
         <form action="ceklogin.php" method="post">
             <p>Username </p>
-            <input type="text" name="username" placeholder="Username" >
+            <input type="text" name="username" placeholder="Username" required>
             <p>Password </p>
-            <input type="password" name="password" placeholder="Password" >
+            <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
     </div>

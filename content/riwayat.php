@@ -3,7 +3,7 @@
 
 ?>
 <section class="content-header">
-    <center><h1>Riwayat</h1></center>
+    <center><h1 class=" bg-primary">Riwayat</h1></center>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -21,32 +21,36 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>Nama</th>
-                            <th>Kredit</th>
-                            <th>Debit</th>
+                            <th>Transaksi</th>
+                            <th>Nominal</th>
                             <th>Keterangan</th>
                             <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
                      
-<!-- memilih data yang ada di user-->
-            <?php
-                $query= "SELECT * FROM transaksi ";
-
-                $result= mysqli_query($con,$query);
-                $no= 0;
-                while($data = mysqli_fetch_assoc($result)) {
-                    $no++;
-
-            ?>
+<!-- memilih data yang ada di transaksi-->
+                        <?php
+                        $tampil = "SElECT * FROM view_transaksi";
+                        $query = mysqli_query($con,$tampil);
+                        $no=0;
+                        while ($data = mysqli_fetch_array($query)) {
+                            //        var_dump($data);
+                            $no++;
+                            ?>
                             <tr>
-                            <td><?=$no;?></td>
-                            <td><?=$data['tanggal']?></td>
-                            <td><?=$data['nama']?></td>
-                            <td><?=$data['kredit']?></td>
-                            <td><?=$data['debit']?></td>
-                            <td><?=$data['keterangan']?></td>
-
+                                <td><?= $no; ?></td>
+                                <td><?= $data['tanggal']; ?></td>
+                                <td><?= $data['nama']; ?></td>
+                                <td><?php
+                                    if ($data['kode_tr']=="1"){echo "Kredit";}
+                                    elseif ($data['kode_tr']=="2"){echo "Debit";}
+                                    ?></td>
+                                <td><?= "Rp. ". number_format($data['nominal'],0,",", ".") . ",-"; ?></td>
+                                <td><?=$data['keterangan']?></td>
+                            <?php
+                        
+                        ?>
                                 <td>
                                     <!-- Modifikasi tombol edit dan hapus-->
                                     <a class="btn btn-sm btn-danger" href="?hal=nasabah_hapus&id=<?= $data['id_siswa'] ?>">

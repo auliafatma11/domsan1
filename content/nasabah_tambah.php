@@ -11,7 +11,7 @@ if(!defined('INDEX')) die("");
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+      <div class="row mx-auto">
         <!-- left column -->
         <div class="col-md-6">
           <!-- general form elements -->
@@ -62,3 +62,12 @@ if(!defined('INDEX')) die("");
             </form>
           </div>
           <!-- /.box -->
+          </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      <!-- Main row -->
+
+
+    </section>
+    <!-- /.content -->

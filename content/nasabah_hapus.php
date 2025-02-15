@@ -13,11 +13,11 @@ $result = mysqli_query($con,$query);
 
 if($result){
     echo "<script>
-    window.alert('Data berhasil dihapus');
+    window.alert('✅Data berhasil dihapus');
     window.location.href='?hal=data_nasabah';
     </script>";
 } else {
-    echo "Tidak dapat menghapus data  !<br>";
+    echo "❌Tidak dapat menghapus data  !<br>";
     echo mysqli_error();
 }
 

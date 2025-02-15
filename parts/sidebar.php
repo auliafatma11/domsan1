@@ -32,7 +32,8 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="?hal=dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li><a href="?hal=data_nasabah"><i class="fa fa-map"></i> <span>Data Siswa</span></a></li>
-        <li><a href="?hal=data_admin"><i class="fa fa-tags"></i> <span>Data Admin</span></a></li>
+        <li><a href="?hal=data_admin"><i class="fa fa-tags"></i> <span>Akun Admin</span></a></li>
+        <li><a href="?hal=nasabah_data"><i class="fa fa-tags"></i> <span>Akun Nasabah</span></a></li>
         <li><a href="?hal=riwayat"><i class="fa fa-history"></i> <span>Riwayat</span></a></li>
         <li><a href="https://fahruroziii.github.io/panduan-aplikasi/" target="blank"><i class="fa fa-book"></i> <span>Panduan Aplikasi</span></a></li>
         <!-- <li class="treeview">

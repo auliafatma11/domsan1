@@ -1,9 +1,12 @@
 <?php
- if(!defined('INDEX')) die("");
+include "library/config.php";
 
+$query = "SELECT nama, username, password FROM user WHERE role = '2'";
+$result = mysqli_query($con, $query);
 ?>
+
 <section class="content-header">
-    <center><h1>Data Nasabah</h1></center>
+    <center><h1 class="text-purple-active bg-primary" >Data Nasabah</h1></center>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -32,7 +35,7 @@
                      
 <!-- memilih data yang ada di user-->
             <?php
-                $query= "SELECT * FROM user where role = '2' ";
+                $query= "SELECT * FROM user  where role = '2' ";
 
                 $result= mysqli_query($con,$query);
                 $no= 0;
@@ -42,7 +45,7 @@
             ?>
                             <tr>
                             <td><?=$no;?></td>
-                            <td><img src=images/<?=$data['foto']?> width="100"></td>
+                            <td><img src="images/<?=$data['foto']?>" alt="" width="100"></td>
                             <td><?=$data['nama']?></td>
                             <td><?=$data['no_induk']?></td>
                             <td><?=$data['kelas']?></td>
@@ -50,7 +53,7 @@
 <!--perintah untuk menambahkan Rp dan nol seterusnya pada nominal-->
                             <td><?= "Rp. ". number_format($data['saldo'],0,",", ".") . ",-"; ?></td>
                             <td>
-                            <a class="btn btn-sm btn-success" href="?hal=tabung&id=<?= $data['id_siswa'] ?>"> Kredit </a>
+                            <a class="btn btn-sm bg-purple" href="?hal=tabung&id=<?= $data['id_siswa'] ?>"> Kredit </a>
                             <a class="btn btn-sm btn-warning"
 <?php
 
@@ -73,7 +76,7 @@ href="?hal=tarik&id=<?= $data['id_siswa'] ?>"
                                     <a class="btn btn-sm btn-info" href="?hal=nasabah_edit&id=<?= $data['id_siswa'] ?>">
                                         <i class="fa fa-pencil"> Edit</i>
                                     </a>
-                                    <a class="btn btn-sm btn-danger" href="?hal=nasabah_hapus&id=<?= $data['id_siswa'] ?>">
+                                    <a class="btn btn-sm btn-danger" href="?hal=nasabah_hapus&id=<?=$data['id_siswa']?>&foto=<?=$data['foto']?>">
                                         <i class="fa fa-eraser"> Hapus </i>
                                     </a>
                                 </td>

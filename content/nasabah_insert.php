@@ -11,6 +11,7 @@ $kelas = mysqli_real_escape_string($con, $_POST['kelas']);
 $role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) : '2'; // Default 'user'
 
 // Cek apakah No Induk sudah ada di database
+// Cek apakah No Induk sudah ada di database
 $query = "SELECT * FROM user WHERE no_induk = '$no_induk'";
 $result = mysqli_query($con, $query);
 if (mysqli_num_rows($result) > 0) {
@@ -20,6 +21,19 @@ if (mysqli_num_rows($result) > 0) {
     </script>";
     exit;
 }
+
+// **Tambahkan exit setelah validasi nomor induk**
+if (!preg_match('/^\d{3}\/\d{3}\.\d{2}$/', $no_induk)) { 
+    echo "<script>
+    alert('⚠️ Format Nomor Induk tidak valid!');
+    window.location.href='?hal=nasabah_tambah';
+    </script>";
+    exit; // **Tambahkan ini agar skrip berhenti!**
+}
+
+// Jika valid
+echo "<script>alert('✅ Nomor Induk valid!');</script>";
+
 
 // Proses Upload Foto
 $foto = $_FILES['foto']['name'];
@@ -37,8 +51,8 @@ if (!empty($foto)) {
     }
 
     // Cek ukuran file
-    if ($ukuran >= 1000000) {
-        echo "<script>alert('❌ Ukuran file terlalu besar! Maks 1MB.'); window.location.href='?hal=nasabah_tambah';</script>";
+    if ($ukuran >= 2000000) {
+        echo "<script>alert('❌ Ukuran file terlalu besar! Maks 2MB.'); window.location.href='?hal=nasabah_tambah';</script>";
         exit;
     }
 

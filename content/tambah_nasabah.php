@@ -5,7 +5,7 @@ if(!defined('INDEX')) die("");
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-        Tambah Akun Admin
+        Tambah Akun Nasabah
       </h1>
     </section>
 
@@ -21,7 +21,7 @@ if(!defined('INDEX')) die("");
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="?hal=admin_insert" method="post" enctype="multipart/form-data">
+            <form action="?hal=update_nasabah" method="post" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="nama">Nama Lengkap</label>

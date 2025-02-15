@@ -37,7 +37,7 @@ $role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) 
 $allowed_roles = ['1', '2'];
 if (!in_array($role, $allowed_roles)) {
     die("<script>
-        alert('Role tidak valid! Hanya bisa 1 (Admin) atau 2 (User)');
+        alert('❌Role tidak valid! Hanya bisa 1 (Admin) atau 2 (User)');
         window.location.href='?hal=nasabah_edit&id=$id_siswa';
     </script>");
 }
@@ -61,7 +61,7 @@ if ($foto == "") {
     // **Validasi File Upload**
     if ($tipe != "image/jpeg" && $tipe != "image/jpg" && $tipe != "image/png") {
         $error = "<script>
-            alert('Maaf, tipe file tidak didukung!');
+            alert('❌Maaf, tipe file tidak didukung!');
             window.location.href='?hal=data_tambah';
         </script>";
     } elseif ($ukuran >= 1000000) {
@@ -96,12 +96,12 @@ if ($error != "") {
     echo "<meta http-equiv='refresh' content='1; url=?hal=nasabah_edit&id=$id_siswa'>";
 } elseif ($result) {
     echo "<script>
-        alert('Data berhasil diperbarui!');
+        alert('✅Data berhasil diperbarui!');
         window.location.href='?hal=data_nasabah';
     </script>";
 } else {
     echo "<script>
-        alert('Gagal memperbarui data!');
+        alert('❌Gagal memperbarui data!');
     </script>";
     echo mysqli_error($con);
 }

@@ -7,7 +7,7 @@ $data = mysqli_fetch_array($query);
 ?>
 
 <section class="content-header">
-    <h1>Debit</h1>
+    <h1>Kredit</h1>
 </section>
 <section class="content">
     <div class="row">
@@ -15,7 +15,7 @@ $data = mysqli_fetch_array($query);
             <div class="box box-primary">
                 <div class="box-header with-border">
                 </div>
-                <form action="?hal=tarik_proses" method="post" role="form">
+                <form action="?hal=tabung_proses" method="post" role="form">
                     <div class="box-body">
                         <!-- <div class="form-group">
                             <label for="tanggal">Tanggal</label>

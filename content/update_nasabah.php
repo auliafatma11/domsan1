@@ -6,8 +6,8 @@ include "library/config.php";
 $nama = isset($_POST['nama']) ? mysqli_real_escape_string($con, $_POST['nama']) : '';
 $username = isset($_POST['username']) ? mysqli_real_escape_string($con, $_POST['username']) : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
-$role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) : '1'; // Default 1 untuk admin
-$no_induk = isset($_POST['no_induk']) ? mysqli_real_escape_string($con, $_POST['no_induk']) : '';
+$role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) : '2'; // Default 1 untuk nasabah
+$no_induk = isset($_POST['no_induk']) && $_POST['no_induk'] !== '' ? mysqli_real_escape_string($con, $_POST['no_induk']) : NULL; // Bisa NULL
 
 // Validasi input
 if (empty($nama) || empty($username) || empty($password)) {
@@ -18,12 +18,12 @@ if (empty($nama) || empty($username) || empty($password)) {
     exit;
 }
 
-// Hash password sebelum disimpan
+// Hash password sebelum disimpan (lebih aman)
 $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
-// Simpan ke database (gunakan '' bukan NULL jika kosong)
+// Simpan ke database (`NULLIF` untuk menghindari string kosong)
 $query = "INSERT INTO user (nama, username, password, role, no_induk, saldo) 
-          VALUES ('$nama', '$username', '$password_hashed', '$role', '$no_induk', 0)";
+          VALUES ('$nama', '$username', '$password_hashed', '$role', " . ($no_induk ? "'$no_induk'" : "NULL") . ", 0)";
 
 if (mysqli_query($con, $query)) {
     echo "<script>
