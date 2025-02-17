@@ -45,13 +45,13 @@ if(!defined('INDEX')) die("");
                   <label for="saldo">Saldo</label>
                   <input type="number" class="form-control" id="saldo" name="saldo" >
                 </div> -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                 <label for="role">Role</label>
                 <select id="role" name="role" disabled>
                     <option value="2" >User</option>
                     <option value="1" >Admin</option>
                 </select>
-                </div>
+                </div> -->
                 
               <!-- /.box-body -->
 

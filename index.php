@@ -25,6 +25,8 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="logo/dom-san.png" />
 <html>
 <head>
   <?php include "parts/head.php"; ?>

@@ -5,5 +5,5 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2025 By Kelompok 2.</strong> All rights reserved.
+    <strong>Copyright &copy; 2025 By SquadCash.</strong> All rights reserved.
 </footer>

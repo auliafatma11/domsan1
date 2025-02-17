@@ -1,9 +1,5 @@
-<?php
- if(!defined('INDEX')) die("");
-
-?>
 <section class="content-header">
-    <center><h1 class=" bg-primary">Riwayat</h1></center>
+    <h1>Riwayat Transaksi</h1>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -11,7 +7,6 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <!-- <a class="btn btn-md btn-info" href="?hal=nasabah_tambah"> +</a> -->
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -20,43 +15,43 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Nama</th>
-                            <th>Transaksi</th>
-                            <th>Nominal</th>
+                            <th>Nama Nasabah</th>
+                            <th>Jenis Transaksi</th>
+                            <th>Saldo Awal</th>
+                            <th>Nominal Transaksi</th>
+                            <th>Saldo Akhir</th>
                             <th>Keterangan</th>
-                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
-                     
-<!-- memilih data yang ada di transaksi-->
+<!-- mengambil data dari table transaksi-->
+                        
                         <?php
-                        $tampil = "SElECT * FROM view_transaksi";
-                        $query = mysqli_query($con,$tampil);
-                        $no=0;
+                        // Query dengan IFNULL untuk menghindari NULL pada saldo_awal dan saldo_akhir
+                        $tampil = "SELECT transaksi.*, 
+                                          IFNULL(transaksi.saldo_awal, 0) AS saldo_awal, 
+                                          IFNULL(transaksi.saldo_akhir, 0) AS saldo_akhir, 
+                                          IFNULL(user.nama, '') AS nama, 
+                                          IFNULL(transaksi.keterangan, '') AS keterangan 
+                                   FROM transaksi 
+                                   JOIN user USING (id_siswa)
+                                   WHERE id_siswa = '".mysqli_real_escape_string($con, $_GET['id_siswa'])."'";
+                        
+                        $query = mysqli_query($con, $tampil);
+                        $no = 0;
+
                         while ($data = mysqli_fetch_array($query)) {
-                            //        var_dump($data);
                             $no++;
                             ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td><?= $data['tanggal']; ?></td>
-                                <td><?= $data['nama']; ?></td>
-                                <td><?php
-                                    if ($data['kode_tr']=="1"){echo "Kredit";}
-                                    elseif ($data['kode_tr']=="2"){echo "Debit";}
-                                    ?></td>
-                                <td><?= "Rp. ". number_format($data['nominal'],0,",", ".") . ",-"; ?></td>
-                                <td><?=$data['keterangan']?></td>
-                            <?php
-                        
-                        ?>
-                                <td>
-                                    <!-- Modifikasi tombol edit dan hapus-->
-                                    <a class="btn btn-sm btn-danger" href="?hal=nasabah_hapus&id=<?= $data['id_siswa'] ?>">
-                                        <i class="fa fa-eraser"> Hapus </i>
-                                    </a>
-                                </td>
+                                <td><?= htmlspecialchars($data['tanggal'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td><?= htmlspecialchars($data['nama'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td><?= $data['kode_tr'] == "1" ? "Setor" : ($data['kode_tr'] == "2" ? "Tarik" : ""); ?></td>
+                                <td><?= "Rp. " . number_format($data['saldo_awal'], 0, ",", ".") . ",-"; ?></td>
+                                <td><?= "Rp. " . number_format($data['nominal'], 0, ",", ".") . ",-"; ?></td>
+                                <td><?= "Rp. " . number_format($data['saldo_akhir'], 0, ",", ".") . ",-"; ?></td>
+                                <td><?= htmlspecialchars($data['keterangan'], ENT_QUOTES, 'UTF-8'); ?></td>
                             </tr>
                             <?php
                         }

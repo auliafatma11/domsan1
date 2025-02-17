@@ -2,7 +2,7 @@
 
 //mengambil data nasabah dari database
 $query = mysqli_query($con,
-    "SELECT * FROM user WHERE id_siswa='$_GET[id]'");
+    "SELECT * FROM user WHERE id_siswa='$_GET[id_siswa]'");
 $data = mysqli_fetch_array($query);
 ?>
 

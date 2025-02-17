@@ -62,12 +62,12 @@ if ($foto == "") {
     if ($tipe != "image/jpeg" && $tipe != "image/jpg" && $tipe != "image/png") {
         $error = "<script>
             alert('❌Maaf, tipe file tidak didukung!');
-            window.location.href='?hal=data_tambah';
+            window.location.href='?hal=nasabah_edit';
         </script>";
     } elseif ($ukuran >= 1000000) {
         $error = "<script>
             alert('Ukuran file terlalu besar (lebih dari 1 MB)!');
-            window.location.href='?hal=data_tambah';
+            window.location.href='?hal=nasabah_edit';
         </script>";
     } else {
         // **Hapus Foto Lama**
@@ -76,7 +76,7 @@ if ($foto == "") {
         }
 
         // **Upload Foto Baru**
-        $nama_foto = date('YmdHis') . "-" . $foto;
+        $nama_foto = date('YmdHis');
         move_uploaded_file($lokasi, "images/" . $nama_foto);
 
         // **Update Data dengan Foto Baru**

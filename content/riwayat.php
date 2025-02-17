@@ -3,7 +3,7 @@
 
 ?>
 <section class="content-header">
-    <center><h1 class=" bg-primary">Riwayat</h1></center>
+    <h1>Riwayat</h1>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -53,7 +53,7 @@
                         ?>
                                 <td>
                                     <!-- Modifikasi tombol edit dan hapus-->
-                                    <a class="btn btn-sm btn-danger" href="?hal=nasabah_hapus&id=<?= $data['id_siswa'] ?>">
+                                    <a class="btn btn-sm btn-danger" href="?hal=riwayat_hapus&id=<?= $data['id_transaksi'] ?>">
                                         <i class="fa fa-eraser"> Hapus </i>
                                     </a>
                                 </td>
