@@ -28,8 +28,8 @@ $saldo_awal = $data_saldo['saldo'];
 $saldo_akhir = $saldo_awal + $nominal;
 
 // Query INSERT dengan format yang benar
-$query_transaksi = "INSERT INTO transaksi (tanggal, id_siswa, kode_tr, nominal, saldo_awal, saldo_akhir) 
-                    VALUES ('$tanggal', '$id_siswa', '$kode_tr', '$nominal', $saldo_awal, $saldo_akhir)";
+$query_transaksi = "INSERT INTO transaksi (tanggal, id_siswa, kode_tr, nominal, keterangan, saldo_awal, saldo_akhir) 
+                    VALUES ('$tanggal', '$id_siswa', '$kode_tr', '$nominal', $keterangan, $saldo_awal, $saldo_akhir)";
 $query1 = mysqli_query($con, $query_transaksi);
 
 // Query UPDATE saldo user

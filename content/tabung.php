@@ -34,7 +34,7 @@ $data = mysqli_fetch_array($query);
                         </div>
                         <div class="form-group">
                             <label for="nominal">Keterangan</label>
-                            <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Masukkan Keterangan" required>
+                            <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Masukkan Keterangan">
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-success">Simpan</button>
