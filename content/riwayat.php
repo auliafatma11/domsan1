@@ -7,6 +7,25 @@
 </section>
 <!-- Main content -->
 <section class="content">
+<?php 
+if(isset($_GET['p'])){ ?>
+
+    <div class="row">
+        <div class="col-md-12">
+          
+            <!-- /.box-header -->
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Sukses!</h4>
+                <?=$_GET['p']?>
+              </div>
+
+        </div>
+        <!-- /.col -->
+    </div>
+<?php
+}
+?>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">

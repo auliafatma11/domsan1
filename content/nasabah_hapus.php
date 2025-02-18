@@ -12,7 +12,7 @@ $query = "DELETE FROM user WHERE id_siswa = '$id'";
 $result = mysqli_query($con,$query);
 
 if($result){ 
-    $pesan = "Alhamdulillah, data nasabah berhasil dihapus";
+    $pesan = "Data nasabah berhasil dihapus";
     echo "<script>
     window.location.href='?hal=data_nasabah&p=$pesan';
     </script>";

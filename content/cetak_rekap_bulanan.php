@@ -105,10 +105,10 @@
                     <table class="table">
                                         <tr class="text-center">
                                             <td>
-                                                <br><br><u><small>Accounting</small></u><br><br><br>(......................................)
+                                                <br><br><u><small>Teller</small></u><br><br><br>(......................................)
                                             </td>
                                             <td>
-                                                <br><br><u><small>Directur</small></u><br><br><br>(......................................)
+                                                <br><br><u><small>Manajer</small></u><br><br><br>(......................................)
                                             </td>
                                         </tr>
 
