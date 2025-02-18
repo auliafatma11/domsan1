@@ -1608,6 +1608,8 @@ pre code {
   margin-left: auto;
 }
 .row {
+
+  margin-top: 13%;
   margin-right: -15px;
   margin-left: -15px;
 }

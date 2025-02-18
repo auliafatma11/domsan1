@@ -57,7 +57,7 @@ if(!defined('INDEX')) die("");
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <button type="reset" class="btn btn-primary">Batal</button>
+                <a class="btn btn-primary" href="?hal=data_nasabah">Batal</a>
               </div>
             </form>
           </div>

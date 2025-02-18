@@ -16,7 +16,7 @@
             <div class="callout callout-info">
                 <h4>Selamat Datang di Aplikasi <b>DOM-$AN</b> !</h4>
 
-                <p>Dom-$an (Dompet Santri) adalah solusi cerdas bagi para santri untuk mengelola keuangan dengan lebih bijak dan aman di lingkungan pondok pesantren. Aplikasi ini dirancang untuk meminimalisir pemborosan serta menghindari risiko kehilangan uang tunai dengan sistem pencatatan yang rapi dan fitur transaksi yang praktis..</p>
+                <p>Dom-$an (Dompet Santri) adalah solusi cerdas bagi para santri untuk mengelola keuangan dengan lebih bijak dan aman di lingkungan pondok pesantren. Aplikasi ini dirancang untuk meminimalisir pemborosan serta menghindari risiko kehilangan uang tunai dengan sistem pencatatan yang rapi dan fitur transaksi yang praktis.</p>
             </div>
         </div>
     </div>

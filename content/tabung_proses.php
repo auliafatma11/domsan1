@@ -8,6 +8,7 @@ if (!isset($con)) {
 $tanggal = isset($_POST['tanggal']) && !empty($_POST['tanggal']) ? $_POST['tanggal'] : date('Y-m-d H:i:s');
 $id_siswa = $_POST['id_siswa'] ?? '';
 $nominal = $_POST['nominal'] ?? 0;
+$keterangan = $_POST['keterangan'];
 $kode_tr = 1;
 
 // Validasi jika id_siswa atau nominal kosong
@@ -29,7 +30,7 @@ $saldo_akhir = $saldo_awal + $nominal;
 
 // Query INSERT dengan format yang benar
 $query_transaksi = "INSERT INTO transaksi (tanggal, id_siswa, kode_tr, nominal, keterangan, saldo_awal, saldo_akhir) 
-                    VALUES ('$tanggal', '$id_siswa', '$kode_tr', '$nominal', $keterangan, $saldo_awal, $saldo_akhir)";
+                    VALUES ('$tanggal', '$id_siswa', '$kode_tr', '$nominal', '$keterangan', $saldo_awal, $saldo_akhir)";
 $query1 = mysqli_query($con, $query_transaksi);
 
 // Query UPDATE saldo user
