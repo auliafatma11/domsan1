@@ -22,7 +22,7 @@ include "library/config.php";
                 <tbody>
 
 <?php
-$query = mysqli_query($con, "SELECT id_siswa, nama, username, password FROM user WHERE role = '2'");
+$query = mysqli_query($con, "SELECT id_siswa, nama, username, password FROM user WHERE role = '2' ORDER BY id_siswa DESC");
 $no = 0;
 while ($data = mysqli_fetch_assoc($query)) {
     $no++;

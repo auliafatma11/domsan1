@@ -19,7 +19,7 @@
                 <p>Dom-$an (Dompet Santri) adalah solusi cerdas bagi para santri untuk mengelola keuangan dengan lebih bijak dan aman di lingkungan pondok pesantren. Aplikasi ini dirancang untuk meminimalisir pemborosan serta menghindari risiko kehilangan uang tunai dengan sistem pencatatan yang rapi dan fitur transaksi yang praktis.</p>
             </div>
         </div>
-    </div>
+      </div>
       <div class="row">
         <div class="col-lg-4 col-xs-12">
           <!-- small box -->

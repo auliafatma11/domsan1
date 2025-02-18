@@ -25,18 +25,32 @@
                         </thead>
                         <tbody>
 <!-- mengambil data dari table transaksi-->
-                        
+
                         <?php
-                        // Query dengan IFNULL untuk menghindari NULL pada saldo_awal dan saldo_akhir
+                        if (session_status() == PHP_SESSION_NONE) {
+                            session_start();
+                        }
+                        
+                         // Mulai session
+                        include "library/config.php"; // Pastikan koneksi database
+
+                        // Cek apakah user sudah login
+                        if (!isset($_SESSION['username'])) {
+                            header("Location: login.php"); // Redirect ke login jika tidak ada session
+                            exit();
+                        }
+
+                        // Query untuk mengambil data transaksi berdasarkan username dari session
                         $tampil = "SELECT transaksi.*, 
                                           IFNULL(transaksi.saldo_awal, 0) AS saldo_awal, 
                                           IFNULL(transaksi.saldo_akhir, 0) AS saldo_akhir, 
                                           IFNULL(user.nama, '') AS nama, 
                                           IFNULL(transaksi.keterangan, '') AS keterangan 
                                    FROM transaksi 
-                                   JOIN user USING (id_siswa)
-                                   WHERE id_siswa = '".mysqli_real_escape_string($con, $_GET['id_siswa'])."' ORDER BY id_transaksi DESC";
-                        
+                                   JOIN user ON transaksi.id_siswa = user.id_siswa
+                                   WHERE user.username = '".mysqli_real_escape_string($con, $_SESSION['username'])."' 
+                                   ORDER BY transaksi.id_transaksi DESC";
+
                         $query = mysqli_query($con, $tampil);
                         $no = 0;
 
@@ -64,5 +78,4 @@
             <!-- /.box -->
         </div>
     </div>
-
 </section>

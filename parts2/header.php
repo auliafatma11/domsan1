@@ -1,4 +1,33 @@
-   
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!defined('INDEX2')) die("Akses dilarang!");
+
+// Pastikan koneksi ke database tersedia
+include 'library/config.php'; 
+
+// Pastikan user sudah login
+if (!isset($_SESSION['username'])) {
+    die("Anda belum login!");
+}
+
+$username = $_SESSION['username'];
+
+/// Cek struktur tabel user, sesuaikan kolomnya jika perlu
+$query = mysqli_query($con, "SELECT nama, foto, kelas, saldo FROM user WHERE username = '$username' LIMIT 1");
+$data = mysqli_fetch_assoc($query);
+
+if ($data) {
+    $nama_nasabah = $data['nama'];
+    $kelas_nasabah = $data['kelas'];
+    $foto = $data['foto'] ? $data['foto'] : 'default.jpg';
+    $saldo = number_format($data['saldo'], 0, ',', '.');
+} else {
+    die("Data pengguna tidak ditemukan!");
+}
+?>
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->

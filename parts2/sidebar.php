@@ -3,16 +3,16 @@
     <section class="sidebar">
 
       <!-- Sidebar user panel (optional) -->
-      <!-- <div class="user-panel">
+      <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="images/<?= $foto; ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p> -->
+          <p><?= $nama_nasabah; ?></p>
           <!-- Status -->
-          <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
-      </div> -->
+      </div> 
 
       <!-- search form (Optional) -->
       <!-- <form action="#" method="get" class="sidebar-form">
@@ -30,7 +30,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">SIDEBAR</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="?hal=dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="?hal=dashboard1"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="?hal=riwayat"><i class="fa fa-history"></i> <span>Riwayat</span></a></li>
         <!-- <li><a href="?hal=data_nasabah"><i class="fa fa-map"></i> <span>Data Nasabah</span></a></li>
         
         <li class="treeview">

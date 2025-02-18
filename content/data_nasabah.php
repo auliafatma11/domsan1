@@ -52,9 +52,9 @@ if(isset($_GET['p'])){ ?>
                         <tbody>
 
                             <?php
-                            $query = mysqli_query($con, "SELECT id_siswa, nama, no_induk, kelas, saldo, foto FROM user WHERE role = '2'");
+                            $query = mysqli_query($con, "SELECT id_siswa, nama, no_induk, kelas, saldo, foto FROM user WHERE role = '2' ORDER BY id_siswa DESC");
                             $no = 0;
-                            while ($data = mysqli_fetch_assoc($query)) {
+                            while ($data = mysqli_fetch_array($query)) {
                                 $no++;
                             ?>
 

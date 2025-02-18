@@ -31,7 +31,7 @@
                      
 <!-- memilih data yang ada di transaksi-->
                         <?php
-                        $tampil = "SElECT * FROM view_transaksi";
+                        $tampil = "SElECT * FROM view_transaksi ORDER BY id_transaksi DESC";
                         $query = mysqli_query($con,$tampil);
                         $no=0;
                         while ($data = mysqli_fetch_array($query)) {

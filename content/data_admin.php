@@ -27,7 +27,7 @@ include "library/config.php";
                 <tbody>
 
 <?php
-$query = mysqli_query($con, "SELECT * FROM user WHERE role = 1"); // Hanya admin
+$query = mysqli_query($con, "SELECT * FROM user WHERE role = 1 ORDER BY id_siswa DESC"); // Hanya admin
 $no = 0;
 while ($data = mysqli_fetch_assoc($query)) {
     $no++;

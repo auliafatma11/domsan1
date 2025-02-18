@@ -4,8 +4,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>D-</b>$AN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg brandlogo-image"><img src="logo/dom-san.png" alt=""></span>
-      <span class="logo-lg"><b>DOM-$AN</b></span>
+      <span class="logo-lg brandlogo-image"><img src="logo/dom-san.png" alt=""><b>DOM-$AN</b></span>
     </a>
 
     <!-- Header Navbar -->
