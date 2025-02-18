@@ -17,10 +17,10 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <form action="?hal=tarik_proses" method="post" role="form">
                     <div class="box-body">
-                        <!-- <div class="form-group">
+                         <div class="form-group">
                             <label for="tanggal">Tanggal</label>
                             <input type="date" class="form-control" name="tanggal" id="tanggal" placeholder="tanggal"required>
-                        </div> -->
+                        </div> 
                         <div class="form-group">
                             <label for="id_nasabah">Nama Nasabah</label>
                             <input type="hidden" name="id_siswa" value="<?= $data['id_siswa'] ?>">

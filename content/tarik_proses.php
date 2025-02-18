@@ -1,7 +1,7 @@
 <?php
 
 //menampung nilai variable $_POST
-$tanggal    = date('Y-m-d H:i:s'); // Menggunakan fungsi PHP untuk mendapatkan tanggal saat ini
+$tanggal    = $_POST['tanggal']; // Menggunakan fungsi PHP untuk mendapatkan tanggal saat ini
 $saldo_awal = $_POST['saldo_awal'];
 $id_siswa = $_POST['id_siswa'];
 $nominal= $_POST['nominal'];

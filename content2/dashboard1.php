@@ -28,12 +28,14 @@ $data = mysqli_fetch_assoc($query);
 
 // Ambil nilai saldo, pemasukan, dan pengeluaran
 if ($data) {
-    $saldo = number_format($data['saldo'], 0, ',', '.');
-    $pemasukan = number_format($data['pemasukan'], 0, ',', '.');
-    $pengeluaran = number_format($data['pengeluaran'], 0, ',', '.');
+    // Pastikan nilai tidak null, jika null beri nilai 0
+    $saldo = number_format($data['saldo'] ?? 0, 0, ',', '.');
+    $pemasukan = number_format($data['pemasukan'] ?? 0, 0, ',', '.');
+    $pengeluaran = number_format($data['pengeluaran'] ?? 0, 0, ',', '.');
 } else {
     die("Data pengguna tidak ditemukan!");
 }
+
 
 ?>
 

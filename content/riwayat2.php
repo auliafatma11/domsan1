@@ -21,6 +21,7 @@
                             <th>Nominal Transaksi</th>
                             <th>Saldo Akhir</th>
                             <th>Keterangan</th>
+                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -47,11 +48,13 @@
                                 <td><?= $no; ?></td>
                                 <td><?= htmlspecialchars($data['tanggal'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
                                 <td><?= htmlspecialchars($data['nama'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td><?= $data['kode_tr'] == "1" ? "Setor" : ($data['kode_tr'] == "2" ? "Tarik" : ""); ?></td>
+                                <td><?= $data['kode_tr'] == "1" ? "Tabung" : ($data['kode_tr'] == "2" ? "Tarik" : ""); ?></td>
                                 <td><?= "Rp. " . number_format($data['saldo_awal'], 0, ",", ".") . ",-"; ?></td>
                                 <td><?= "Rp. " . number_format($data['nominal'], 0, ",", ".") . ",-"; ?></td>
                                 <td><?= "Rp. " . number_format($data['saldo_akhir'], 0, ",", ".") . ",-"; ?></td>
                                 <td><?= htmlspecialchars($data['keterangan'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td><a class="btn btn-sm btn-primary" href="?hal=slip_cetak&id_transaksi=<?= $data['id_transaksi'] ?>&id_siswa=<?= $_GET['id_siswa'] ?>">Cetak</a></td>
+
                             </tr>
                             <?php
                         }

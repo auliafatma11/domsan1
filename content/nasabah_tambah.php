@@ -33,7 +33,7 @@ if(!defined('INDEX')) die("");
                 </div>
                 <div class="form-group">
                     <label for="no_induk">No.Induk</label>
-                    <input type="text" class="form-control" id="no_induk" name="no_induk" required>
+                    <input type="number" class="form-control" id="no_induk" name="no_induk" required>
                 </div>
                 <div class="form-group">
                     <label for="kelas">Kelas</label> <br>

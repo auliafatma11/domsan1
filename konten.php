@@ -20,7 +20,9 @@
         "tarik",
         "tarik_proses",
         "tabung",
-        "tabung_proses"
+        "tabung_proses",
+        "cetak_rekap_bulanan",
+        "slip_cetak"
     ];
 
     if(isset($_GET['hal'])) {

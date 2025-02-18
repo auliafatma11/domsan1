@@ -14,10 +14,19 @@ $no_induk = trim(mysqli_real_escape_string($con, $_POST['no_induk']));
 $kelas = mysqli_real_escape_string($con, $_POST['kelas']);
 $username = $no_induk;
 
+// 🔹 Validasi no_induk harus angka
+if (!is_numeric($no_induk)) {
+    echo "<script>
+        alert('⚠️ No. Induk harus berupa angka!');
+        window.location.href='?hal=nasabah_tambah';
+    </script>";
+    exit;
+}
+
 // 🔹 Cek apakah `no_induk` sudah ada
 $query = "SELECT no_induk FROM user WHERE no_induk = ?";
 $stmt = mysqli_prepare($con, $query);
-mysqli_stmt_bind_param($stmt, "s", $no_induk);
+mysqli_stmt_bind_param($stmt, "i", $no_induk);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_store_result($stmt);
 

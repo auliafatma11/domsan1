@@ -5,7 +5,7 @@ if (!isset($con)) {
 }
 
 // Menampung nilai dari form, dengan validasi
-$tanggal = isset($_POST['tanggal']) && !empty($_POST['tanggal']) ? $_POST['tanggal'] : date('Y-m-d H:i:s');
+$tanggal = $_POST['tanggal'];
 $id_siswa = $_POST['id_siswa'] ?? '';
 $nominal = $_POST['nominal'] ?? 0;
 $keterangan = $_POST['keterangan'];

@@ -66,8 +66,8 @@ if(isset($_GET['p'])){ ?>
                                 <td><?= $data['kelas']; ?></td>
                                 <td><?= "Rp. " . number_format(intval($data['saldo']), 0, ",", ".") . ",-"; ?></td>
                                 <td>
-                                    <a href="?hal=tabung&id_siswa=<?= $data['id_siswa']; ?>" class="btn btn-info">Kredit</a>
-                                    <a href="?hal=tarik&id_siswa=<?= $data['id_siswa']; ?>" class="btn btn-info">Debit</a>
+                                    <a href="?hal=tabung&id_siswa=<?= $data['id_siswa']; ?>" class="btn btn-info">Tabung</a>
+                                    <a href="?hal=tarik&id_siswa=<?= $data['id_siswa']; ?>" class="btn btn-info">Tarik</a>
                                     <a href="?hal=riwayat2&id_siswa=<?= $data['id_siswa']; ?>" class="btn btn-info">Riwayat</a>
                                 </td>
                                 <td>
@@ -77,8 +77,8 @@ if(isset($_GET['p'])){ ?>
                                     <a href="?hal=nasabah_hapus&id_siswa=<?= $data['id_siswa']?>&foto=<?=$data['foto']?>" 
                                     class="btn btn-danger" 
                                     onclick="return confirm('Yakin ingin menghapus?')">
-                                        <i class="fa fa-trash"> Hapus</i>
-                                    </a>
+                                    <i class="fa fa-trash"> Hapus</i>
+                                </a>
                                 </td>
 
                             </tr>
