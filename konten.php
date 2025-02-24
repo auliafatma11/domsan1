@@ -22,7 +22,11 @@
         "tabung",
         "tabung_proses",
         "cetak_rekap_bulanan",
-        "slip_cetak"
+        "slip_cetak",
+        "data_teller",
+        "teller_tambah",
+        "teller_insert",
+        "teller_hapus"
     ];
 
     if(isset($_GET['hal'])) {

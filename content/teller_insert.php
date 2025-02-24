@@ -6,7 +6,7 @@ include "library/config.php";
 $nama = isset($_POST['nama']) ? mysqli_real_escape_string($con, $_POST['nama']) : '';
 $username = isset($_POST['username']) ? mysqli_real_escape_string($con, $_POST['username']) : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
-$role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) : '1'; // Default 1 untuk admin
+$role = isset($_POST['role']) ? mysqli_real_escape_string($con, $_POST['role']) : '3'; // Default 1 untuk admin
 $no_induk = isset($_POST['no_induk']) && $_POST['no_induk'] !== '' ? mysqli_real_escape_string($con, $_POST['no_induk']) : 'NULL';
 
 
@@ -14,7 +14,7 @@ $no_induk = isset($_POST['no_induk']) && $_POST['no_induk'] !== '' ? mysqli_real
 if (empty($nama) || empty($username) || empty($password)) {
     echo "<script>
         alert('⚠️ Semua data harus diisi!');
-        window.location.href='?hal=admin_tambah';
+        window.location.href='?hal=teller_tambah';
     </script>";
     exit;
 }
@@ -28,12 +28,12 @@ $query = "INSERT INTO user (nama, username, password, role, no_induk, saldo)
 
 if (mysqli_query($con, $query)) {
     echo "<script>
-        alert('✅ Admin berhasil ditambahkan!');
-        window.location.href='?hal=data_admin';
+        alert('✅ Teller berhasil ditambahkan!');
+        window.location.href='?hal=data_teller';
     </script>";
 } else {
     echo "<script>
-        alert('❌ Gagal menambahkan admin: " . mysqli_error($con) . "');
+        alert('❌ Gagal menambahkan Teller: " . mysqli_error($con) . "');
         window.history.back();
     </script>";
 }

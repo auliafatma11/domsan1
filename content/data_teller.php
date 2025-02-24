@@ -3,7 +3,7 @@ include "library/config.php";
 ?>
 
 <section class="content-header">
-    <h1>Akun Admin</h1>
+    <h1>Akun Teller</h1>
 </section>
 
 <section class="content">
@@ -30,7 +30,7 @@ if(isset($_GET['p'])){ ?>
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a class="btn btn-md btn-info" href="?hal=admin_tambah"> +</a>
+                    <a class="btn btn-md btn-info" href="?hal=teller_tambah"> +</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -46,7 +46,7 @@ if(isset($_GET['p'])){ ?>
                 <tbody>
 
 <?php
-$query = mysqli_query($con, "SELECT * FROM user WHERE role = 1 ORDER BY id_siswa DESC"); // Hanya admin
+$query = mysqli_query($con, "SELECT * FROM user WHERE role = 3 ORDER BY id_siswa DESC"); // Hanya admin
 $no = 0;
 while ($data = mysqli_fetch_assoc($query)) {
     $no++;
@@ -55,7 +55,7 @@ while ($data = mysqli_fetch_assoc($query)) {
             <td>{$data['nama']}</td>
             <td>{$data['username']}</td>
             <td>
-                <a href='?hal=admin_hapus&id_siswa={$data['id_siswa']}' class='btn btn-danger' onclick='return confirm(\"Yakin ingin menghapus?\")'>Hapus</a>
+                <a href='?hal=teller_hapus&id_siswa={$data['id_siswa']}' class='btn btn-danger' onclick='return confirm(\"Yakin ingin menghapus?\")'>Hapus</a>
             </td>
         </tr>";
 }

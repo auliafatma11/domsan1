@@ -12,10 +12,10 @@ $query = "DELETE FROM user WHERE id_siswa = '$id'";
 $result = mysqli_query($con, $query);
 
 if ($result) {
-    $pesan = "Data Admin berhasil dihapus";
+    $pesan = "Data Teller berhasil dihapus";
     echo "<script>
     window.alert('✅ Data berhasil dihapus');
-    window.location.href='?hal=data_admin&p=$pesan';
+    window.location.href='?hal=data_teller&p=$pesan';
     </script>";
 } else {
     echo "❌ Tidak dapat menghapus data!<br>";

@@ -12,7 +12,9 @@ $ukuran = $_FILES['foto']['size'];
 $nama = mysqli_real_escape_string($con, $_POST['nama']);
 $no_induk = trim(mysqli_real_escape_string($con, $_POST['no_induk']));
 $kelas = mysqli_real_escape_string($con, $_POST['kelas']);
-$username = $no_induk;
+$username = preg_replace('/\s+/', '', strtolower($nama)); // Menghapus spasi dari nama
+$password_plain = $no_induk; // Password menggunakan no_induk
+$role = 2;
 
 // 🔹 Validasi no_induk harus angka
 if (!is_numeric($no_induk)) {
@@ -23,7 +25,7 @@ if (!is_numeric($no_induk)) {
     exit;
 }
 
-// 🔹 Cek apakah `no_induk` sudah ada
+// 🔹 Cek apakah no_induk sudah ada
 $query = "SELECT no_induk FROM user WHERE no_induk = ?";
 $stmt = mysqli_prepare($con, $query);
 mysqli_stmt_bind_param($stmt, "i", $no_induk);
@@ -40,11 +42,7 @@ if (mysqli_stmt_num_rows($stmt) > 0) {
 
 mysqli_stmt_close($stmt);
 
-// 🔹 Generate password otomatis (6 karakter random)
-$password_plain = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 6);
-$role = 2;
-
-// 🔹 Simpan data ke tabel `user`
+// 🔹 Simpan data ke tabel user
 if (empty($foto)) {
     $query = "INSERT INTO user (nama, no_induk, kelas, foto, saldo, username, password, role) 
               VALUES (?, ?, ?, '', 0, ?, ?, ?)";

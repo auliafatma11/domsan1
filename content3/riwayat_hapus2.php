@@ -1,5 +1,5 @@
 <?php
-if (!defined('INDEX')) die("Akses ditolak!");
+if (!defined('INDEX3')) die("Akses ditolak!");
 
 include "library/config.php";
 
@@ -11,8 +11,8 @@ if (isset($_GET['id'])) {
     $query = mysqli_query($con, "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'");
 
     if ($query) {
-        $pesan = "Riwayat transaksi berhasil dihapus";
-        echo "<script> window.location.href='?hal=riwayat&p=$pesan';</script>";
+        $pesan = "Data nasabah berhasil dihapus";
+        echo "<script> window.location.href='?hal=riwayat3&p=$pesan';</script>";
     } else {
         echo "<script>alert('Gagal menghapus riwayat transaksi!'); window.history.back();</script>";
     }

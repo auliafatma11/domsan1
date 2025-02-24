@@ -17,9 +17,11 @@
 
         if( $_SESSION['role']==1){
             header('location:index.php');
-        }else{
+        }elseif( $_SESSION['role']==2){
             header('location:index2.php');
-        }   
+        }else {
+            header('location:index3.php');
+        }  
     }else {
         echo "<script>alert('Login Gagal!.'); window.location='login.php';</script>";
         exit();
